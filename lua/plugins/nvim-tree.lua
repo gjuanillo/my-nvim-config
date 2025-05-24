@@ -38,6 +38,6 @@ return {
         })
         -- You can avoid custom highlights here as you rely on the theme's colors
         -- Ensure the colorscheme 'gruvbox' is applied
-        vim.cmd("colorscheme gruvbox-baby")
+        vim.cmd("colorscheme poimandres")
     end
 }

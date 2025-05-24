@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"lua_ls", "jdtls"}, --removed ts_ls
+                ensure_installed = {"lua_ls", "jdtls", "harper_ls"}, --ts_ls is deprecated
             })
         end
     },
@@ -37,6 +37,23 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
+            lspconfig.harper_ls.setup({
+                capabilities = capabilities,
+                linters = {
+                    SpellCheck = true,
+                    SpelledNumbers = false,
+                    AnA = true,
+                    SentenceCapitalization = true,
+                    UnclosedQuotes = true,
+                    WrongQuotes = false,
+                    LongSentences = true,
+                    RepeatedWords = true,
+                    Spaces = true,
+                    Matcher = true,
+                    CorrectNumberSuffix = true
+                  }
+            })
+
             -- lspconfig.tsserver.setup({
             --     capabilities = capabilities,
             -- })

@@ -1,7 +1,7 @@
 local function get_jdtls()
     -- Get the Mason Registry to gain access to downloaded binaries
     local mason_registry = require("mason-registry")
-    -- Find the JDTLS package in the Mason Regsitry
+    -- Find the JDTLS package in the Mason Registry
     local jdtls = mason_registry.get_package("jdtls")
     -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
     local jdtls_path = jdtls:get_install_path()
@@ -32,7 +32,7 @@ local function get_bundles()
     local java_test = mason_registry.get_package("java-test")
     -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
     local java_test_path = java_test:get_install_path()
-    -- Add all of the Jars for running tests in debug mode to the bundles list
+    -- Add all the Jars for running tests in debug mode to the bundles list
     vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
 
     return bundles
