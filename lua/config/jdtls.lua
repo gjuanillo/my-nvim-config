@@ -2,11 +2,21 @@ local function get_jdtls()
     -- Get the Mason Registry to gain access to downloaded binaries
     local mason_registry = require("mason-registry")
     -- Find the JDTLS package in the Mason Registry
-    local jdtls = mason_registry.get_package("jdtls")
+    if not mason_registry.has_package("jdtls") then
+        vim.notify("JDTLS is not installed via Mason", vim.log.levels.ERROR)
+        return nil, nil, nil
+    end
+    -- local jdtls = mason_registry.get_package("jdtls")
+    local mason_packages_path = vim.fn.expand("$MASON/packages")
     -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
-    local jdtls_path = jdtls:get_install_path()
+    -- local jdtls_path = jdtls.get_install_path()
+    local jdtls_path = mason_packages_path .. "/jdtls"
     -- Obtain the path to the jar which runs the language server
     local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+    if launcher == "" then
+        vim.notify("Launcher JAR not found")
+        return
+    end
     -- Declare white operating system we are using, windows use win, macos use mac
     local SYSTEM = "linux"
     -- Obtain the path to configuration files for your specific operating system
@@ -20,18 +30,21 @@ local function get_bundles()
     -- Get the Mason Registry to gain access to downloaded binaries
     local mason_registry = require("mason-registry")
     -- Find the Java Debug Adapter package in the Mason Registry
-    local java_debug = mason_registry.get_package("java-debug-adapter")
+    -- local java_debug = mason_registry.get_package("java-debug-adapter")
+    local mason_packages_path = vim.fn.expand("$MASON/packages")
     -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
-    local java_debug_path = java_debug:get_install_path()
+    local java_debug_path = mason_packages_path .. "/java-debug-adapter"
+    -- local java_debug_path = java_debug:get_install_path()
 
     local bundles = {
         vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
     }
 
     -- Find the Java Test package in the Mason Registry
-    local java_test = mason_registry.get_package("java-test")
+    -- local java_test = mason_registry.get_package("java-test")
     -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
-    local java_test_path = java_test:get_install_path()
+    -- local java_test_path = java_test:get_install_path()
+    local java_test_path = mason_packages_path .. "/java-test"
     -- Add all the Jars for running tests in debug mode to the bundles list
     vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
 
