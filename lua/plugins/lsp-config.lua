@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {"lua_ls", "jdtls", "harper_ls"}, --ts_ls is deprecated
+                ensure_installed = {"lua_ls", "jdtls", "harper_ls", "html", "emmet_ls", "cssls", "tailwindcss"},
             })
         end
     },
@@ -54,9 +54,24 @@ return {
                   }
             })
 
-            -- lspconfig.tsserver.setup({
-            --     capabilities = capabilities,
-            -- })
+            lspconfig.html.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.tailwindcss.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.cssls.setup({
+              capabilities = capabilities,
+            })
+
+            lspconfig.emmet_ls.setup({
+                capabilities = capabilities,
+                filetypes = {
+                    "html", "css", "scss", "javascript", "javascriptreact", "typescriptreact"
+                }
+            })
 
             vim.diagnostic.config({
                 virtual_text = {
