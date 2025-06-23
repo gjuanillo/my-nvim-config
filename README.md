@@ -1,103 +1,147 @@
-# Neovim Spring Boot + React Full-Stack Development
+# Neovim Spring Boot + React Full-Stack Configuration
 
-The purpose of this repository is to serve as a backup for my Neovim configuration and to keep track of any changes I make. If you’ve stumbled upon this repository and find it useful, feel free to fork it!
+This repository contains my personal Neovim setup designed for **Full-Stack Development** using **Spring Boot** and **React**. It's optimized for Java, TypeScript, JavaScript, HTML, and CSS development in a **minimal yet powerful workflow**.
 
-## Special Thanks
-
-Huge thanks to **Unknown Koder** for his amazing [YouTube guide](https://www.youtube.com/watch?v=zbpF3te0M3g&t=11362s) and for his generosity in providing his nvim setup tailored for Java full-stack development from scratch. Please check out his video!  
-This configuration is heavily inspired by his work, with some personal tweaks and updates to better suit my needs for **Full Stack Development (Spring Boot + React)**.
+> ⚠This is a living config — I use it as both a backup and a way to track changes. Feel free to fork or adapt it to your own workflow!
 
 ---
 
-## Overview
+## Special Thanks
 
-This Neovim configuration is tailored for:
-- Java/Spring development
-- JavaScript/TypeScript (React) development
-- Convenient file navigation, coding, debugging, and Git integration
+Huge thanks to [**Unknown Koder**](https://github.com/unknownkoder/Java-FullStack-NeoVim-Configuration) for his excellent [YouTube guide](https://www.youtube.com/watch?v=zbpF3te0M3g&t=11362s), which served as the foundation for this setup.
 
-I’ve made updates such as:
-- Using `ts_ls` for TypeScript/JavaScript LSP.
-- Custom keymaps
-- Updated plugins and personalized themes
-- Focus on a minimal but powerful setup
+---
+
+## Features & Focus
+
+This configuration is built for:
+
+- **Java + Spring Boot** development
+- **React** with TypeScript/JavaScript
+- Fuzzy file finding, Git integration, debugging, and code formatting
+- Minimal UI with powerful developer ergonomics
 
 ---
 
 ## Preview
-
-**Example:**  
 
 ![Screenshot 1](preview-1.png)  
 ![Screenshot 2](preview-2.png)
 
 ---
 
-## Plugin List
+## Plugins
 
-### Core Plugin Manager
-- [Lazy.nvim](https://github.com/folke/lazy.nvim) — Plugin Manager
+### Plugin Manager
+- [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
-### UI / Theme
-- [Gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) — Color Scheme
-- [Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) — Statusline
-- [Nvim-Tree.lua](https://github.com/nvim-tree/nvim-tree.lua) — File Explorer
-- [Which-key.nvim](https://github.com/folke/which-key.nvim) — Keybinding Helper
+### UI & Theme
+- [`poimandres.nvim`](https://github.com/olivercederborg/poimandres.nvim) — Current theme
+- [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
+- [`nvim-tree.lua`](https://github.com/nvim-tree/nvim-tree.lua) — File explorer
+- [`which-key.nvim`](https://github.com/folke/which-key.nvim) — Keybinding hints
+- [`nvim-highlight-colors`](https://github.com/brenoprata10/nvim-highlight-colors)
 
 ### Fuzzy Finder / Navigation
-- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) — Fuzzy Finder
-- [Harpoon](https://github.com/ThePrimeagen/harpoon) — File/bookmark quick navigation
+- [`telescope.nvim`](https://github.com/nvim-telescope/telescope.nvim)
+- [`telescope-ui-select.nvim`](https://github.com/nvim-telescope/telescope-ui-select.nvim)
+- [`harpoon`](https://github.com/ThePrimeagen/harpoon)
 
-### Syntax Highlighting
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) — Syntax Parsing and Highlighting
+### Syntax Highlighting & Treesitter
+- [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
+- [`nvim-ts-autotag`](https://github.com/windwp/nvim-ts-autotag)
+- [`nvim-ts-context-commentstring`](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 
-### Language Server Protocol (LSP) and Autocompletion
-- [Mason.nvim](https://github.com/williamboman/mason.nvim) — LSP/DAP/Formatter Installer
-- [Mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) — Bridge between Mason and LSPConfig
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) — Native LSP Configuration
-- [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) — Java Language Support (JDTLS)
-- [Springboot-nvim](https://github.com/elmcgill/springboot-nvim) — Extra Support for Spring Boot Development
-- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim) — Formatter and Linter (ex. Null-ls)
+### LSP, Formatters & Linters
+- [`mason.nvim`](https://github.com/williamboman/mason.nvim)
+- [`mason-lspconfig.nvim`](https://github.com/williamboman/mason-lspconfig.nvim)
+- [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)
+- [`none-ls.nvim`](https://github.com/nvimtools/none-ls.nvim)
+- [`none-ls-extras.nvim`](https://github.com/nvimtools/none-ls-extras.nvim)
+- [`typescript-tools.nvim`](https://github.com/pmizio/typescript-tools.nvim)
+- [`nvim-jdtls`](https://github.com/mfussenegger/nvim-jdtls)
+- [`springboot-nvim`](https://github.com/elmcgill/springboot-nvim)
+- [`lsp_signature.nvim`](https://github.com/ray-x/lsp_signature.nvim)
 
-### Completion Plugins
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) — Completion Engine
-- [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) — LSP Source for nvim-cmp
-- [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) — Buffer Source for nvim-cmp
-- [cmp-path](https://github.com/hrsh7th/cmp-path) — Path Source for nvim-cmp
-- [LuaSnip](https://github.com/L3MON4D3/LuaSnip) — Snippet Engine
-- [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) — LuaSnip Source for nvim-cmp
-- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) — Snippet Collection
+### Completion
+- [`nvim-cmp`](https://github.com/hrsh7th/nvim-cmp)
+- [`cmp-nvim-lsp`](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [`cmp-buffer`](https://github.com/hrsh7th/cmp-buffer)
+- [`cmp-path`](https://github.com/hrsh7th/cmp-path)
+- [`LuaSnip`](https://github.com/L3MON4D3/LuaSnip)
+- [`cmp_luasnip`](https://github.com/saadparwaiz1/cmp_luasnip)
+- [`friendly-snippets`](https://github.com/rafamadriz/friendly-snippets)
 
 ### Debugging
-- [nvim-dap](https://github.com/mfussenegger/nvim-dap) — Debug Adapter Protocol Client
+- [`nvim-dap`](https://github.com/mfussenegger/nvim-dap)
+- [`nvim-dap-ui`](https://github.com/rcarriga/nvim-dap-ui)
+- [`mason-nvim-dap.nvim`](https://github.com/jay-babu/mason-nvim-dap.nvim)
 
 ### Utilities
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) — Autoclose Brackets and Quotes
-- [Comment.nvim](https://github.com/numToStr/Comment.nvim) — Easy Commenting
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) — Git Integration
-- [vim-fugitive](https://github.com/tpope/vim-fugitive) — Full Git Wrapper
+- [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs)
+- [`Comment.nvim`](https://github.com/numToStr/Comment.nvim)
+- [`gitsigns.nvim`](https://github.com/lewis6991/gitsigns.nvim)
+- [`vim-fugitive`](https://github.com/tpope/vim-fugitive)
+- [`plenary.nvim`](https://github.com/nvim-lua/plenary.nvim)
+- [`nvim-nio`](https://github.com/nvim-neorocks/nvim-nio)
 
 ---
-## Credits
-- Original configuration and inspiration: [Unknown Koder](https://github.com/unknownkoder/Java-FullStack-NeoVim-Configuration)
-- Contributors of all the listed plugins for building an incredible Neovim ecosystem
+
+## LSPs & Tools Installed via Mason
+
+### LSP Servers
+- `jdtls` — Java
+- `typescript-language-server`
+- `tailwindcss-language-server`
+- `html-lsp`
+- `css-lsp`
+- `eslint-lsp`
+- `emmet-ls`
+- `lua-language-server`
+- `harper-ls`
+
+### Formatters & Linters
+- `google-java-format`
+- `prettier`
+- `stylua`
+- `ts-standard`
+- `eslint_d`
+
+### Debugging
+- `java-debug-adapter`
+- `java-test`
+
 ---
 
 ## Requirements
-#### This setup is configured to use WSL, such as Ubuntu. Tools needed to be present inside the system include:
-- Java Development Kit 17+
-- Node.js Latest LTS
-- Npm
-- Neovim v0.9+
+
+This config is intended to work with most Unix-like environments.
+
+Make sure the following tools are installed:
+
+- Neovim `v0.9+`
+- Java 17+
+- Node.js (LTS)
+- npm
 - Git
 - Ripgrep
+- `fd` (optional but recommended for Telescope)
 
 ---
 
-## Installation
+## 🚀 Installation
 
 ```bash
 git clone https://github.com/gjuanillo/my-nvim-config.git ~/.config/nvim
 nvim
+```
 
+## 🧰 Others
 
+This Neovim setup is part of a broader terminal-based development workflow that includes:
+
+- 🧩 **[My Dotfiles](https://github.com/gjuanillo/dotfiles)** — Shell, Git, Terminal, and general unix system configurations for my mint and arch machines.
+- 🪟 **[Tmux](https://github.com/tmux/tmux)** — Terminal multiplexer for efficient session management.
+- 📁 **[Yazi](https://github.com/sxyazi/yazi)** — Blazing-fast terminal file manager with modern UI and keybindings.
+
+These tools complement the Neovim experience and help create a cohesive, keyboard-driven environment.
